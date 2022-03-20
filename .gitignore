@@ -1,0 +1,4 @@
+/node_modules/
+/public/memory-game/build/
+
+.DS_Store
