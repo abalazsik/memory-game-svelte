@@ -14,8 +14,8 @@
 	}
 </script>
 
-<main style="display: flex;">
-	<div style="margin: 0px auto;">
+<main>
+	<div class="to-center">
 		<button on:click={restart} id="restart-button">Restart</button>
 		<span id="steps-label">steps: {$stateMachine.steps}</span>
 		{#if !$stateMachine.isEnded}
@@ -25,28 +25,26 @@
 				{/each}
 			</div>
 		{:else}
-			<h2>Congrats! Here is your prize sir</h2>
-			<iframe
-				width="560"
-				height="315"
-				src="https://www.youtube.com/embed/YZLryYlaWBs"
-				title="YouTube video player"
-				frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen
-			/>
+			<h2>Congrats! You won</h2>
 		{/if}
 	</div>
 </main>
 
 <style>
+	main {
+		display: flex;
+	}
+
+	.to-center {
+		margin: 0px auto;
+	}
+
 	.box-container {
 		display: grid;
 		grid-template-columns: 7.5em 7.5em 7.5em 7.5em 7.5em 7.5em;
 		grid-template-rows: 7.5em 7.5em 7.5em 7.5em 7.5em 7.5em;
-		padding: 0.5em;
-		width: 43em;
-		height: 43em;
+		align-items: center;
+    	justify-items: center;
 	}
 
 	#restart-button {
@@ -64,5 +62,6 @@
 		font-weight: bold;
 		float: right;
 		padding-top: 3px;
+		padding-right: 0.6em;
 	}
 </style>

@@ -39,6 +39,10 @@ function createStateMachineStore() {
                             update(old => {
                                 const first = old.cardData.find(data => data.idx === old.firstIdx);
                                 const second = old.cardData.find(data => data.idx === old.secondIdx);
+                                
+                                if (!first) { throw "invalid firstIdx" }
+                                if (!second) { throw "invalid secondIdx"; }
+
                                 if (first.equals(second)) {
                                     old.cardData = old.cardData.filter(data => data.idx !== old.firstIdx && data.idx !== old.secondIdx);
                                 } else {

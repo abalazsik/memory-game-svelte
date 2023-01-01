@@ -32,7 +32,7 @@ export class Generator {
     private static validPermutations(): CardData[] {
         const colors = [Color.Blue, Color.Green, Color.Red];
 
-        let cards = [];
+        let cards: CardData[] = [];
 
         for (let text of colors) {
             for (let backColor of colors) {

@@ -1,5 +1,3 @@
 # memory game svelte app
 
-Just a memory card game with svelte & css grid
-
-[demo](https://manonacid.hu/memory-game)
+A memory card game made with svelte, typescript & css grid

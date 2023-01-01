@@ -19,29 +19,31 @@
 	}
 </script>
 
-<div on:click={onClick} class="outer-box" style="grid-column: {data.x}; grid-row: {data.y}">
+<button on:click={onClick} class="outer-box" style:grid-column={data.x} style:grid-row={data.y}>
 	{#if data.visible}
 		<div
 			class="box"
-			style="color: {colorToRGB(data.color)}; background-color: {colorToRGB(
-				data.backColor
-			)}">
+			style:color={colorToRGB(data.color)}
+			style:background-color={colorToRGB(data.backColor)}>
 			<div class="inner-box">{colorToText(data.text)}</div>
 		</div>
 	{:else}
 		<div class="inner-box unknown">?</div>
 	{/if}
-</div>
+</button>
 
 <style>
 	.outer-box {
-		width: 7em;
-		height: 7em;
+		width: 8em;
+		height: 8em;
 		text-align: center;
 		font-weight: bold;
 		cursor: pointer;
 		margin: 0.1em;
-		line-height: 7em;
+		line-height: 8em;
+		border: none;
+		background: none;
+		padding: 0px;
 	}
 
 	.box {
@@ -50,6 +52,7 @@
 
 	.inner-box {
 		width: 100%;
+		font-size: 16px;
 	}
 
 	.unknown {
