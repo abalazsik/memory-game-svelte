@@ -2,3 +2,5 @@
 /public/memory-game/build/
 
 .DS_Store
+
+out/
