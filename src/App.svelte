@@ -1,9 +1,7 @@
 <script lang="ts">
 	import Card from './Card.svelte';
 	import { stateMachine } from './stateMachine';
-	import { onMount } from 'svelte';
-
-	onMount(async () => {});
+	import { recordStore } from './recordStore';
 
 	function onSelect(event) {
 		stateMachine.transition(event.detail);
@@ -18,6 +16,9 @@
 	<div class="to-center">
 		<button on:click={restart} id="restart-button">Restart</button>
 		<span id="steps-label">steps: {$stateMachine.steps}</span>
+		{#if $recordStore !== undefined }
+			<span>best: {$recordStore}</span>
+		{/if}
 		{#if !$stateMachine.isEnded}
 			<div class="box-container">
 				{#each $stateMachine.cardData as card}

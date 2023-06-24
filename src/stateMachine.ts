@@ -1,5 +1,6 @@
 import { Generator } from './cards';
-import { writable } from 'svelte/store';
+import { get, writable } from 'svelte/store';
+import { recordStore } from './recordStore';
 
 enum State {
     AllUnselected, FirstSelected, SecondSelected
@@ -51,10 +52,14 @@ function createStateMachineStore() {
                                 }
                                 old.state = State.AllUnselected;
                                 old.isEnded = old.cardData.length === 0;
+                                old.steps = old.steps + 1;
+                                
                                 if (!old.isEnded) {
                                     old.isClickable = true;
+                                } else if (get(recordStore) === undefined || get(recordStore) > old.steps) {
+                                    recordStore.set(old.steps);
                                 }
-                                old.steps = old.steps + 1;
+                                
                                 return old;
                             });
                         }, 2000);
